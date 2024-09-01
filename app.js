@@ -31,7 +31,7 @@ same([1,2,3],[9,4,1]);
 // soluation two
 
 function same(arr1,arr2) {
-    if (arr1.legnth !== arr2.legnth) return false;
+    if (arr1.length !== arr2.length) return false;
 
     let frequencycounter1 = {};
     let frequencycounter2 = {};
@@ -58,30 +58,13 @@ function same(arr1,arr2) {
 }
 
 
-same([1,5,3,2],[9,25,1,4]);
+same([1,2,3],[9,4,1]);
 
 
 // write a function that takes two sorted/unsorted strings and compare them if they're the same or not
 
 
-// soluation one using indexOf aka nested loop (not recommended)
-function same(str1,str2) {
-    if (str1.length !== str2.length) return false;
-
-    for (let i = 0; i < str1.legnth;i++) {
-        let correctStr = str2.indexOf(str1[1]);
-        if (correctStr === -1) return false;
-        str2.splice(correctStr,1);
-    }
-
-    return true;
-
-}
-
-same("azaz","zaza");
-
-
-// soluation two
+// soluation one by me
 
 function same(str1,str2) {
     if (str1.length !== str2.length) return false;
@@ -109,4 +92,35 @@ function same(str1,str2) {
     return true;
 }
 
-same("yheb","heye");
+same("hye","hey");
+
+
+// soluation two by colt steele
+
+function same(first,second) {
+    if (first.length !== second.length) {
+        return false;
+    }
+
+    let lookup = {};
+    for (let i = 0; i < first.length; i++) {
+        let letter = first[i];
+        lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+        
+    }
+
+    for (let i = 0; i < second.length; i++) {
+        let letter = second[i];
+        if (!lookup[letter]) {
+            return false;
+        } else {
+            lookup[letter] -= 1;
+        }
+        
+    }
+
+    return true;
+
+}
+
+same("anagram", "nagaram");
