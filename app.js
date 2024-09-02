@@ -63,16 +63,6 @@ function same(arr1,arr2) {
 
 same([3,1,2,2],[9,4,1,4]);
 
-// ask chatgpt why when i console log this object it gives me sorted object
-let obj = {
-    a : 1,
-    c : 1,
-    b : 1,
-    
-}
-
-console.log(obj);
-
 // write a function that takes two sorted/unsorted strings and compare them if they're the same or not
 
 
